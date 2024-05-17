@@ -1,7 +1,7 @@
 import { db } from "@/lib/db";
 import { auth } from "@clerk/nextjs/server";
 import { revalidatePath } from "next/cache";
-import { Button } from "@radix-ui/themes";
+import { Button, Dialog } from "@radix-ui/themes";
 
 export default function ProfileForm() {
   const { userId } = auth();
@@ -23,15 +23,65 @@ export default function ProfileForm() {
 
   return (
     <div>
-      <h2>Update Profile</h2>
-      <p>Welcome to Profoundly, please update your details!</p>
-      <form action={handleUpdateProfile}>
-        <input name="username" placeholder="Username" />
-        <input name="country" placeholder="Country" />
-        <input name="industry" placeholder="Industry" />
-        <input name="bio" placeholder="Bio" />
-        <Button>Submit</Button>
-      </form>
+      <Dialog.Root>
+        <Dialog.Trigger>
+          <Button>Update profile</Button>
+        </Dialog.Trigger>
+
+        <Dialog.Content maxWidth="450px">
+          <Dialog.Title>Update profile</Dialog.Title>
+          <Dialog.Description size="2" mb="4">
+            Welcome to Profoundly, please update your details!.
+          </Dialog.Description>
+
+          <Flex direction="column" gap="3">
+            <label>
+              <Text as="div" size="2" mb="1" weight="bold">
+                Username
+              </Text>
+              <TextField.Root
+                defaultValue=""
+                placeholder="Enter your username"
+              />
+            </label>
+            <label>
+              <Text as="div" size="2" mb="1" weight="bold">
+                Country
+              </Text>
+              <TextField.Root
+                defaultValue=""
+                placeholder="Enter your country"
+              />
+            </label>
+            <label>
+              <Text as="div" size="2" mb="1" weight="bold">
+                Industry
+              </Text>
+              <TextField.Root
+                defaultValue=""
+                placeholder="Enter your industry"
+              />
+            </label>
+            <label>
+              <Text as="div" size="2" mb="1" weight="bold">
+                Bio
+              </Text>
+              <TextField.Root defaultValue="" placeholder="Enter your bio" />
+            </label>
+          </Flex>
+
+          <Flex gap="3" mt="4" justify="end">
+            <Dialog.Close>
+              <Button variant="soft" color="gray">
+                Cancel
+              </Button>
+            </Dialog.Close>
+            <Dialog.Close>
+              <Button>Save</Button>
+            </Dialog.Close>
+          </Flex>
+        </Dialog.Content>
+      </Dialog.Root>
     </div>
   );
 }

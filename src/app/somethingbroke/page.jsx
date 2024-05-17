@@ -1,3 +1,5 @@
+"use client";
+
 export default function BrokenPage() {
   // we are simulating thayt something has gone wrong.
   // it could be a bad fetch, DB query or just a broken server somewhere.

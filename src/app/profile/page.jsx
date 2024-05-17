@@ -1,6 +1,7 @@
-import { SignedIn, SignedOut } from "@clerk/nextjs";
+import { SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
 import { auth, currentUser } from "@clerk/nextjs/server";
 import Link from "next/link";
+import { Box, Text, Flex, Card } from "@radix-ui/themes";
 
 export default async function Profile() {
   // Get the userId from auth() -- if null, the user is not signed in
@@ -18,13 +19,23 @@ export default async function Profile() {
   return (
     <div>
       <SignedIn>
-        <h2>
-          Welcome {user?.username}({user?.industry})
-        </h2>
-        <p>
-          You are signed in with {user?.emailAddresses[0].emailAddress} from
-          {user?.country}
-        </p>
+        <Box maxWidth="240px">
+          <Card>
+            <Flex gap="3" align="center">
+              <Box>
+                <UserButton />
+                <Text as="div" size="2" weight="bold">
+                  Welcome {user?.username}({user?.industry})
+                </Text>
+                <Text as="div" size="2" color="gray">
+                  You are signed in with {user?.emailAddresses[0].emailAddress}{" "}
+                  from
+                  {user?.country}
+                </Text>
+              </Box>
+            </Flex>
+          </Card>
+        </Box>
       </SignedIn>
       <SignedOut>
         <Link href="/sign-in">Please sign in</Link>

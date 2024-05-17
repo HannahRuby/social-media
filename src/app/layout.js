@@ -31,16 +31,12 @@ export default async function RootLayout({ children }) {
         <body>
           <Header>
             <SignedOut>
-              {/* <SignInButton />
-              <SignUpButton /> */}
               <AllPost />
             </SignedOut>
             <SignedIn>
               <profile />
               <posts />
               <ProfileForm />
-
-              <UserButton />
             </SignedIn>
           </Header>
           <Theme

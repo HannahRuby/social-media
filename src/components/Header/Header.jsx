@@ -8,8 +8,7 @@ export default function Header() {
     <header className="header">
       <h1>Profoundly</h1>
       <SignedIn />
-      {/* <SignOut /> */}
-      <UserButton />
+
       <Profile />
       <nav>
         <Link href="/">Home</Link>

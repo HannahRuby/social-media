@@ -9,5 +9,6 @@ CREATE TABLE profiles (
 CREATE TABLE posts (
     id SERIAL PRIMARY KEY,
     user_id INT REFERENCES profiles(id),
-    content TEXT
+    content TEXT,
+    created_at TIMESTAMP DEFAULT current_timestamp
 );
