@@ -2,7 +2,6 @@ import ProfileForm from "@/components/ProfileForm";
 import { db } from "@/lib/db";
 import { SignedIn, SignedOut, SignInButton } from "@clerk/nextjs";
 import { auth } from "@clerk/nextjs/server";
-import { notFound } from "next/navigation";
 
 export default async function Posts() {
   // get the clerk userId
@@ -30,7 +29,7 @@ export default async function Posts() {
     // get information from the form
 
     const content = formData.get("content");
-    const created_at = formData.get("created_at");
+    // const created_at = formData.get("created_at");
 
     // get the profile id from the database
     const profileResult = await db.query(
@@ -44,10 +43,6 @@ export default async function Posts() {
       `INSERT INTO posts (profile_id, content, created_at) VALUES ($1, $2, $3)`,
       [profileId, content, created_at]
     );
-
-    if (!profileId) {
-      notFound();
-    }
   }
   return (
     <div>
@@ -72,7 +67,7 @@ export default async function Posts() {
           return (
             <div key={post.id}>
               <h4>{post.username} from says...</h4>
-              <p>{post.content} at</p>
+              <p>{post.content}</p>
               {/* <p>{post.created_at}</p> */}
               {/* <button action={() => handleDeletePost(post.id)}>Delete</button> */}
             </div>
