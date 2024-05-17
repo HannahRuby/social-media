@@ -1,11 +1,11 @@
 import { Theme } from "@radix-ui/themes";
 
-export default function () {
+export default function Theme() {
   return (
     <html>
       <body>
         <Theme>
-          <MyApp />
+          <main>{children}</main>
         </Theme>
       </body>
     </html>
