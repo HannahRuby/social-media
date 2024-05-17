@@ -25,12 +25,10 @@ export default async function Profile() {
               <Box>
                 <UserButton />
                 <Text as="div" size="2" weight="bold">
-                  Welcome {user?.username}({user?.industry})
+                  Welcome {user?.username}
                 </Text>
                 <Text as="div" size="2" color="gray">
-                  You are signed in with {user?.emailAddresses[0].emailAddress}{" "}
-                  from
-                  {user?.country}
+                  You are signed in with {user?.emailAddresses[0].emailAddress}
                 </Text>
               </Box>
             </Flex>

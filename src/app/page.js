@@ -1,4 +1,6 @@
+import Image from "next/image";
 import AllPost from "./allpost/page";
+// import { Spinner } from "@radix-ui/themes";
 
 export default function Home() {
   return (
@@ -14,6 +16,9 @@ export default function Home() {
         up today and take the first step towards a profoundly rewarding career
         journey!
       </p>
+
+      <Image src="/Home.jpg" alt="social media" width={300} height={500} />
+
       <AllPost />
     </div>
   );
