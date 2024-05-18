@@ -1,6 +1,6 @@
 import { Theme } from "@radix-ui/themes";
 
-export default function Theme() {
+export default function ThemeDemo() {
   return (
     <html>
       <body>
