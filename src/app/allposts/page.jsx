@@ -1,8 +1,8 @@
 import { db } from "@/lib/db";
-
 import { auth } from "@clerk/nextjs/server";
+import { SignedOut, SignInButton } from "@clerk/nextjs";
 
-export default async function AllPost() {
+export default async function AllPosts() {
   //get the clerk userid
   const { userId } = auth();
 
@@ -37,6 +37,10 @@ INNER JOIN profiles ON posts.profile_id = profiles.id`);
   return (
     <div>
       <h3>All posts</h3>
+      <SignedOut>
+        <p>Please sign -in to make ypur own post</p>
+        <SignInButton />
+      </SignedOut>
       <div className="posts">
         {posts.rows.map((post) => {
           return (

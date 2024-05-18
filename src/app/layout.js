@@ -6,7 +6,7 @@ import Header from "@/components/Header/Header.jsx";
 import Footer from "@/components/Footer/Footer.jsx";
 import ProfileForm from "@/components/ProfileForm";
 import "@radix-ui/themes/styles.css";
-import AllPost from "./allpost/page";
+import AllPosts from "./allposts/page";
 import { Theme, ThemePanel } from "@radix-ui/themes";
 
 export default async function RootLayout({ children }) {
@@ -31,7 +31,7 @@ export default async function RootLayout({ children }) {
         <body>
           <Header>
             <SignedOut>
-              <AllPost />
+              <AllPosts />
             </SignedOut>
             <SignedIn>
               <profile />

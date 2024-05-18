@@ -18,6 +18,9 @@ export default function Header() {
         <Link className="nav-link" href="/posts">
           Posts
         </Link>
+        <Link className="nav-link" href="/allposts">
+          All-Posts
+        </Link>
       </nav>
     </header>
   );

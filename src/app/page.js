@@ -1,5 +1,7 @@
-import Image from "next/image";
-import AllPost from "./allpost/page";
+"use client";
+
+import * as AspectRatio from "@radix-ui/react-aspect-ratio";
+import React from "react";
 
 export default function Home() {
   return (
@@ -15,10 +17,17 @@ export default function Home() {
         Sign up today and take the first step towards a profoundly rewarding
         career journey!
       </p>
-
-      <Image src="/Home.jpg" alt="social media" width={300} height={500} />
-
-      <AllPost />
+      <div className="Container">
+        <AspectRatio.Root ratio={16 / 9}>
+          <img
+            className="Image"
+            src="/Home.jpg"
+            alt="social media"
+            width={300}
+            height={500}
+          />
+        </AspectRatio.Root>
+      </div>
     </div>
   );
 }
